@@ -10,54 +10,23 @@ library(gapminder)
 data("gapminder")
 
 #filtrando por anio 2007
-gapminder2007 <- gapminder [gapminder$year =='2007',]
 
 #echando un ojo a los datos
-head(gapminder2007)
+
 
 #cargar libreria ggplot2
-library(ggplot2)
+
 
 #como hacer grafica de puntos con ggplot
-ggplot(data = gapminder2007,
-       mapping = aes(x = gdpPercap, 
-                     y = lifeExp)) +
-  geom_point()
+
 
 #probando diferentes colores
-ggplot(data = gapminder2007,
-       mapping = aes(x = gdpPercap, 
-                     y = lifeExp,
-                     color = continent)) +
-  geom_point()
+
 
 #probando mas aestethics
-ggplot(data = gapminder2007,
-       mapping = aes(x = gdpPercap, 
-                     y = lifeExp,
-                     color = continent,
-                     shape = continent,
-                     size = pop)) +
-  geom_point()
+
 
 #colocando texto
-ggplot(data = gapminder2007,
-       mapping = aes(x = gdpPercap, 
-                     y = lifeExp,
-                     color = continent,
-                     shape = continent,
-                     size = pop)) +
-  geom_point() + 
-  geom_text(label = gapminder2007$country,
-            color = "black", 
-            size = 3)
+
 
 #colocando líneas de regresión
-ggplot(data = gapminder2007,
-       mapping = aes(x = gdpPercap, 
-                     y = lifeExp,
-                     color = continent)) +
-  geom_point() + 
-  geom_smooth(method = lm,
-              se = FALSE,
-              fullrange = TRUE)
